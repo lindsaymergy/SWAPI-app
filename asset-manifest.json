@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/swapi-app/static/css/main.073c9b0a.css",
-    "main.js": "/swapi-app/static/js/main.6f0e545a.js",
-    "static/js/787.32dde6e8.chunk.js": "/swapi-app/static/js/787.32dde6e8.chunk.js",
-    "static/media/logo.svg": "/swapi-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/swapi-app/index.html",
-    "main.073c9b0a.css.map": "/swapi-app/static/css/main.073c9b0a.css.map",
-    "main.6f0e545a.js.map": "/swapi-app/static/js/main.6f0e545a.js.map",
-    "787.32dde6e8.chunk.js.map": "/swapi-app/static/js/787.32dde6e8.chunk.js.map"
+    "main.css": "/SWAPI-app/static/css/main.073c9b0a.css",
+    "main.js": "/SWAPI-app/static/js/main.1d0776ad.js",
+    "static/js/787.32dde6e8.chunk.js": "/SWAPI-app/static/js/787.32dde6e8.chunk.js",
+    "static/media/logo.svg": "/SWAPI-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/SWAPI-app/index.html",
+    "main.073c9b0a.css.map": "/SWAPI-app/static/css/main.073c9b0a.css.map",
+    "main.1d0776ad.js.map": "/SWAPI-app/static/js/main.1d0776ad.js.map",
+    "787.32dde6e8.chunk.js.map": "/SWAPI-app/static/js/787.32dde6e8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.6f0e545a.js"
+    "static/js/main.1d0776ad.js"
   ]
 }
