@@ -1,12 +1,12 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 
 function App() {
+  const [loading, setLoading] = useState(true)
   const [starships, setStarships] = useState([])
-  const  [manufacturers, setManufacturers] = useState([])
 
-  const results = [];
   async function getStarships() {
+    let results = [];
     
     let url = 'https://swapi.dev/api/starships/';
     
@@ -14,33 +14,43 @@ function App() {
       const res = await fetch(url);
       const data = await res.json();
       url = data.next;
-      results.push(...data.results);
+      //results.push(...data.results);
+      results = [...results, ...data.results]
+      // take our previous array, add everything in results to it (lines 17 and 18 are the same)
     } while(url)
 
-    const manufacturers = [];
-    results.map((item) => (
-      manufacturers.push(item.manufacturer)
-    ))
-
-    setManufacturers(manufacturers);
-    console.log('look here:' + manufacturers)
-    
-      // display manufacturers in dropdown element
-      // splice array by commas
-      // remove spaces from items
-      // remove duplicate items
-      // when dropdown option is clicked, 
-      // set state to only display items that relate
-
-    setStarships(results);  
+    setStarships(results);
   }
 
+  const manufacturers = useMemo(() => {
+    const result = starships.reduce((previous, starship) => {
+      return [...previous, ...starship.manufacturer.split(',')];
+      //then map the split to apply the trim to each item
+    }, [])
 
+    return [...new Set(result)].sort();
+
+    // previous wll initially be set to whatever initialiaze is. THEN create a new array, put all old things
+
+    // reduce will iterate through array, run function, and then build result
+    //useMemo returns result of whatever function its passed
+    //react will recalculate manufacturers based on when starship changes in dependency array
+    // using reduce bc we need to watch starship - otherwise it would recalculate on every page load = performance issues
+
+
+  }, [starships])
 
 useEffect(() => {
-  getStarships()
+  // useeffect needs to have a function returned, cant handle promise from async
+  async function init() {
+    await getStarships()
+  }
+
+  init()
   }, []
 );
+
+console.log(manufacturers)
 
   return (
     <div className="App">
